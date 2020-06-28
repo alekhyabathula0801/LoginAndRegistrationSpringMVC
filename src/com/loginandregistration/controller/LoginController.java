@@ -31,4 +31,13 @@ public class LoginController {
         }
     }
 
+    @RequestMapping(value = "/Logout",method = RequestMethod.POST)
+    public void logoutProcess(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        HttpSession session = request.getSession();
+        session.removeAttribute("emailId");
+        session.invalidate();
+        request.getSession().setAttribute("message","Logout Succussfull");
+        response.sendRedirect("login.jsp");
+    }
+
 }
