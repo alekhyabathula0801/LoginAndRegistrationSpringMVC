@@ -15,7 +15,8 @@
                pattern="(?=.*[A-Z])(?=.*[^0-9a-zA-Z])(?=.*[0-9]).{5,}"
                title="Password must contain atleast one capital letter, special character and number with minimum of 5
                characters"><br>
-        <input type="submit" value="Login" style="margin-right: 40px"><br>
+        <input type="submit" value="Login" style="margin-right: 40px">
+        <a style="font-size: 30px;" href="register.jsp">Registration</a><br>
         <c:if test = "${not empty message}">
             <p> ${message} </p>
         </c:if>

@@ -39,7 +39,7 @@ public class LoginController {
             session.setAttribute("userName",user.getUserName());
             response.sendRedirect("welcome.jsp");
         } else {
-            session.setAttribute("message","Data Not Found");
+            session.setAttribute("message","Data Not Found... Click on Registration");
             response.sendRedirect("login.jsp");
         }
     }
@@ -51,6 +51,22 @@ public class LoginController {
         session.invalidate();
         request.getSession().setAttribute("message","Logout Succussfull");
         response.sendRedirect("login.jsp");
+    }
+
+    @RequestMapping(value = "/Registration",method = RequestMethod.POST)
+    public void registrationProcess(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String userName = request.getParameter("userName");
+        String emailId = request.getParameter("emailId");
+        String password = request.getParameter("password");
+        HttpSession session = request.getSession();
+        if (userDAO.isEmailIdExist(emailId)==0){
+            userDAO.addUserToDataBase(userName,emailId,password);
+            session.setAttribute("message","Registration Successfull...Login to continue");
+            response.sendRedirect("login.jsp");
+        } else {
+            session.setAttribute("message","Email Id exists");
+            response.sendRedirect("register.jsp");
+        }
     }
 
 }

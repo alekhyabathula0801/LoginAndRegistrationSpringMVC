@@ -4,6 +4,11 @@
     <title>Welcome</title>
 </head>
 <body>
+<%
+    response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+    if (session.getAttribute("emailId")==null)
+        response.sendRedirect("login.jsp");
+%>
 Welcome ${userName}
 <form action="Logout" method="post">
     <input type="submit" value="Logout">

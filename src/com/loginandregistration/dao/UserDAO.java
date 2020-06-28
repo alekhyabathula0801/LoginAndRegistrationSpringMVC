@@ -33,4 +33,14 @@ public class UserDAO {
         return usersData.size()>0 ? usersData.get(0) : null;
     }
 
+    public boolean addUserToDataBase(String userName, String emailId, String password) {
+            String query = "insert into registration values(?,?,?)";
+            return jdbcTemplate.update(query,userName,emailId,password) == 1;
+    }
+
+    public int isEmailIdExist(String emailId){
+        String sql = "SELECT COUNT(*) FROM registration WHERE emailId=?";
+        return jdbcTemplate.queryForObject(sql,Integer.class,emailId);
+    }
+
 }
