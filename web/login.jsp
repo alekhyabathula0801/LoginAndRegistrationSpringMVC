@@ -15,7 +15,14 @@
                title="Password must contain atleast one capital letter, special character and number with minimum of 5
                characters"><br>
         <input type="submit" value="Login" style="margin-right: 40px"><br>
+        <c:if test = "${not empty message}">
+            <p> ${message} </p>
+        </c:if>
     </form>
 </div>
+
+<%
+    session.setAttribute("message",null);
+%>
 </body>
 </html>

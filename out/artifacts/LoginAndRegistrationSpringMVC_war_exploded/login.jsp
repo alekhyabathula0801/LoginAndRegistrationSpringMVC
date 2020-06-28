@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: arun kumar
-  Date: 27-06-2020
-  Time: 22:51
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -22,7 +15,14 @@
                title="Password must contain atleast one capital letter, special character and number with minimum of 5
                characters"><br>
         <input type="submit" value="Login" style="margin-right: 40px"><br>
+        <c:if test = "${not empty message}">
+            <p> ${message} </p>
+        </c:if>
     </form>
 </div>
+
+<%
+    session.setAttribute("message",null);
+%>
 </body>
 </html>
