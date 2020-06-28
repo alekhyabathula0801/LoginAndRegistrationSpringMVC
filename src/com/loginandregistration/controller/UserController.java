@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
-public class LoginController {
+public class UserController {
 
     UserDAO userDAO;
 
