@@ -9,8 +9,10 @@
 <html>
 <head>
     <title>Registration</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
+<div class="register">
 <div class="form">
     <form action="Registration" method="post">
         <h3>Registration Page </h3><br>
@@ -25,6 +27,7 @@
             <p>${message}</p>
         </c:if>
     </form>
+</div>
 </div>
 <%
     session.setAttribute("message",null);

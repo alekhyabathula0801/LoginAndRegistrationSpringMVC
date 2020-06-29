@@ -1,0 +1,38 @@
+body{
+    background-position: center;
+}
+.login,.register,.welcome{
+    width: 600px;
+    padding: 15px;
+    margin: auto;
+}
+.form{
+    background-position: center;
+    position: center;
+    background: aquamarine;
+    padding: 30px;
+    text-align: center;
+}
+.form input {
+    font-family: "Roboto Light", sans-serif;
+    background: white;
+    font-size: 25px;
+    padding: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+p{
+    text-align: center;
+    font-size: 25px;
+    color: crimson;
+}
+h3{
+    text-align: center;
+    color: red;
+    font-size: 30px;
+}
+h4{
+    text-align: center;
+    color: crimson;
+    font-size: 40px;
+}
