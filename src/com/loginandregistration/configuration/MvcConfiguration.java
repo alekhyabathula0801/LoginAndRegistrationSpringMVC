@@ -1,6 +1,7 @@
 package com.loginandregistration.configuration;
 
 import com.loginandregistration.dao.UserDAO;
+import com.loginandregistration.service.UserService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -17,7 +18,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan({"com.loginandregistration.controller"})
+@ComponentScan({"com.loginandregistration.controller","com.loginandregistration.service"})
 @PropertySource(value = {"classpath:com/loginandregistration/resources/database.properties"})
 public class MvcConfiguration implements WebMvcConfigurer {
 
@@ -53,6 +54,11 @@ public class MvcConfiguration implements WebMvcConfigurer {
     @Bean
     public UserDAO getUserDAO() {
         return new UserDAO();
+    }
+
+    @Bean
+    public UserService getUserService() {
+        return new UserService();
     }
 
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {

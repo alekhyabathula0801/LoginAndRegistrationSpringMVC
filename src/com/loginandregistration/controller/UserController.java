@@ -1,7 +1,7 @@
 package com.loginandregistration.controller;
 
-import com.loginandregistration.dao.UserDAO;
 import com.loginandregistration.model.User;
+import com.loginandregistration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class UserController {
 
     @Autowired
-    UserDAO userDAO;
+    UserService userService;
 
     @RequestMapping("/")
     public ModelAndView getLoginPage() {
@@ -22,7 +22,7 @@ public class UserController {
 
     @RequestMapping(value = "/Login",method = RequestMethod.POST)
     public String loginProcess(@ModelAttribute("user") User user, Model model) {
-        User users = userDAO.validateUser(user.getEmailId(),user.getPassword());
+        User users = userService.getUserDeatils(user.getEmailId(),user.getPassword());
         if(users!=null) {
             user.setUserName(users.getUserName());
             model.addAttribute("userName",user.getUserName());
@@ -42,8 +42,7 @@ public class UserController {
 
     @RequestMapping(value = "/Registration",method = RequestMethod.POST)
     public String registrationProcess(@ModelAttribute("user") User user, Model model) {
-        if (userDAO.isEmailIdExist(user.getEmailId())==0){
-            userDAO.addUserToDataBase(user.getUserName(),user.getEmailId(),user.getPassword());
+        if(userService.addUser(user.getUserName(),user.getEmailId(),user.getPassword())) {
             model.addAttribute("message","Registration Successfull...Login to continue");
             return "login.jsp";
         } else {
