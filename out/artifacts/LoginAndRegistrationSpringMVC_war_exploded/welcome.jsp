@@ -7,7 +7,7 @@
 <body>
 <%
     response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
-    if (request.getAttribute("users")==null) {
+    if (request.getAttribute("userName")==null) {
         request.getSession().setAttribute("message","Please Login");
         response.sendRedirect("login.jsp");
     }
@@ -15,7 +15,7 @@
 <div class="welcome">
     <div class="form">
         <h3>Welcome </h3> <br>
-        <p> Have a nice day ${users.userName} </p>
+        <p> Have a nice day ${userName} </p>
         <form action="Logout" method="post">
             <input type="submit" value="Logout">
         </form>

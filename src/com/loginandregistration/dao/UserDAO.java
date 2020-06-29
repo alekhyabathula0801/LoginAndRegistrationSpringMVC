@@ -11,12 +11,8 @@ import java.util.List;
 
 public class UserDAO {
 
-    JdbcTemplate jdbcTemplate;
-
     @Autowired
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+    JdbcTemplate jdbcTemplate;
 
     public User validateUser(String emailId,String password) {
         String query = "select * from registration where emailId='"+emailId+"' and password='"+password+"'";
