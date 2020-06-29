@@ -34,8 +34,8 @@ public class UserDAO {
     }
 
     public boolean addUserToDataBase(String userName, String emailId, String password) {
-            String query = "insert into registration values(?,?,?)";
-            return jdbcTemplate.update(query,userName,emailId,password) == 1;
+        String query = "insert into registration values(?,?,?)";
+        return jdbcTemplate.update(query,userName,emailId,password) == 1;
     }
 
     public int isEmailIdExist(String emailId){
