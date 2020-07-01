@@ -6,7 +6,7 @@ public class WebInitializer extends AbstractAnnotationConfigDispatcherServletIni
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{MvcConfiguration.class};
+        return new Class[]{MvcConfiguration.class,JDBCConfiguration.class};
     }
 
     @Override
